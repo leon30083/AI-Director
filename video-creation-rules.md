@@ -70,6 +70,21 @@
 - 关键帧之间保持3-5秒的时间间隔
 - 确保每个关键帧的构图完整性
 
+### FLUX提示词规范
+- 优先使用自然语言描述场景
+- 采用完整的叙事性描写
+- 避免关键词堆砌
+- 提示词结构：
+  1. 主要场景描述（What）：描述画面的主体内容
+  2. 环境氛围描述（Where & When）：描述场景的环境和时间
+  3. 视觉风格描述（How）：描述画面的艺术效果
+  4. 光影氛围描述（Atmosphere）：描述整体氛围和意境
+- 示例：
+  ```
+  A serene portrait of a beautiful young Chinese tea picker in the misty spring rain. She wears an elegant emerald green traditional tea-picking dress and a large bamboo hat, her graceful silhouette captured from a 45-degree side angle. Her delicate hands are carefully selecting tea leaves among the fresh buds. The scene is bathed in soft, diffused light, with layers of tea gardens disappearing into the misty distance, creating a dreamy traditional Chinese painting atmosphere.
+  ```
+- 负面提示词保持简洁，只列举关键词
+
 ### 制作流程
 - 使用ComfyUI进行AI绘图
 - 为每个关键帧提供优化的SDXL/SD1.5/FLUX提示词
@@ -78,11 +93,55 @@
 - 存储和管理生成的提示词（prompt文件夹）
 
 ## 第三步：AI视频生成
-- 使用ComfyUI的视频生成功能
-- 为相邻关键帧之间提供[混元视频]模型的转场提示词
-- 优化视频流畅度和连贯性
-- 设计自然的转场效果
-- 确保视频质量符合要求
+### 混元视频提示词规范
+- 使用英文自然语言描述
+- 基于单张关键帧生成
+- 提示词重点：
+  - 相机运动方式和方向
+  - 人物动作（如果有）
+  - 避免描述光照和环境
+
+- 场景示例：
+  1. 西湖全景下推：
+     ```
+     Camera descends from high aerial view, moving straight down towards the tea gardens
+     ```
+  
+  2. 采茶人物特写：
+     ```
+     Moving sideways past the tea picker as she reaches out and plucks tea leaves with precise movements
+     ```
+  
+  3. 炒茶手法：
+     ```
+     Following the tea master's hands from left to right as they stir and flip the leaves in the wok
+     ```
+
+### 提示词要点
+1. 运镜动作：
+   - 运动方向要明确
+   - 速度要清晰描述
+   - 避免复杂组合动作
+
+2. 人物动作（如果有）：
+   - 描述具体的动作过程
+   - 说明动作的方向
+   - 强调动作的速度
+
+### 常用动作词汇
+- 相机运动：descend, rise, move closer, pull back, track, circle
+- 人物动作：reach, turn, walk, pick, stir, lift
+
+### 技术参数
+- 分辨率：1920 x 1080
+- 帧率：60fps
+- 时长：3-5秒
+
+### 注意事项
+1. 只描述动作和运镜
+2. 不要描述光照效果
+3. 不要描述环境氛围
+4. 保持语言简洁明了
 
 ## 第四步：剪映后期处理
 - 指导使用剪映进行视频剪辑
